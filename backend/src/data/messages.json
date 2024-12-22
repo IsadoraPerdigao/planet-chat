@@ -1,0 +1,26 @@
+[
+  {
+    "id": 123457,
+    "content": "Alguma coisa",
+    "sender": "João",
+    "date": "2024-12-22T16:29:53.083Z"
+  },
+  {
+    "id": 123457,
+    "content": "Alguma coisa",
+    "sender": "João",
+    "timestamp": "2024-12-22T16:31:32.323Z"
+  },
+  {
+    "myUUID": "eaf9672b-d432-4db0-9be1-aff09725016c",
+    "content": "Alguma coisa",
+    "sender": "João",
+    "timestamp": "2024-12-22T16:35:51.349Z"
+  },
+  {
+    "id": "26ce2606-a4a3-4c50-ab9d-3ac9f2817944",
+    "content": "Alguma coisa",
+    "sender": "João",
+    "timestamp": "2024-12-22T16:36:23.999Z"
+  }
+]
