@@ -3,12 +3,6 @@
     "id": 123457,
     "content": "Alguma coisa",
     "sender": "João",
-    "date": "2024-12-22T16:29:53.083Z"
-  },
-  {
-    "id": 123457,
-    "content": "Alguma coisa",
-    "sender": "João",
     "timestamp": "2024-12-22T16:31:32.323Z"
   },
   {
@@ -22,5 +16,11 @@
     "content": "Alguma coisa",
     "sender": "João",
     "timestamp": "2024-12-22T16:36:23.999Z"
+  },
+  {
+    "id": "6efa6ecd-df43-4cd4-b284-674f9057fcf5",
+    "content": "Alguma coisa",
+    "sender": "Joana",
+    "timestamp": "2024-12-22T18:12:18.603Z"
   }
 ]
