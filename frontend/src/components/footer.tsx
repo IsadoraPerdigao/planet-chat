@@ -1,3 +1,5 @@
+"use client"
+
 import Image from "next/image"
 import phone from "../assets/phone.svg"
 import mail from "../assets/mail.svg"
