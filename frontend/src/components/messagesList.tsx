@@ -1,76 +1,109 @@
-"use client"
+"use client";
 
-import { useUserContext } from "@/context/userContext"
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
 
 interface Message {
-    id: string;
-    content: string;
-    sender: string;
-    timestamp: string;
+  id: string;
+  content: string;
+  sender: string;
+  timestamp: string;
 }
 
-export const MessagesList = () => {
-    const { user } = useUserContext();
-    const [messages, setMessages] = useState<Message[]>([]);
+interface MessageProps {
+  triggerUpdate: boolean;
+  setTriggerUpdate: Dispatch<SetStateAction<boolean>>;
+}
 
-    useEffect(() => {
-        //Buscar mensagens iniciais com Axios
-    const fetchMessages = async () => {
-        try {
-          const response = await axios.get<Message[]>("http://localhost:8080/messages");
-          setMessages(response.data);
-        } catch (error) {
-          console.error("Erro no GET das mensagens:", error);
-        }
-      };
-  
+export const MessagesList = ({
+  triggerUpdate,
+  setTriggerUpdate,
+}: MessageProps) => {
+  const user = localStorage.getItem("user");
+  const [messages, setMessages] = useState<Message[]>([]);
+
+  //Buscar mensagens iniciais com Axios
+  const fetchMessages = async () => {
+    try {
+      const response = await axios.get<Message[]>(
+        "http://localhost:8080/messages"
+      );
+      setMessages(response.data);
+    } catch (error) {
+      console.error("Erro no GET das mensagens:", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchMessages();
+
+    //Conectar ao WebSocket
+    const socket = new WebSocket("ws://localhost:8080");
+
+    socket.onopen = () => {
+      console.log("Conectado ao WebSocket");
+    };
+
+    socket.onmessage = (event) => {
+      const messagesList: Message[] = JSON.parse(event.data);
+
+      setMessages((prevMessages) => {
+        const existingIds = prevMessages.map((msg) => msg.id);
+        const newMessages = messagesList.filter(
+          (msg) => !existingIds.includes(msg.id)
+        );
+        return [...prevMessages, ...newMessages];
+      });
+    };
+
+    socket.onerror = (error) => {
+      console.error("Erro no WebSocket:", error);
+    };
+
+    socket.onclose = () => {
+      console.log("WebSocket desconectado");
+    };
+
+    //Cleanup ao desmontar o componente
+    return () => {
+      socket.close();
+    };
+  }, []);
+
+  // Atualizar quando triggerUpdate mudar (após POST bem-sucedido)
+  useEffect(() => {
+    if (triggerUpdate) {
       fetchMessages();
-  
-      //Conectar ao WebSocket
-      const socket = new WebSocket("ws://localhost:8080");
-  
-      socket.onopen = () => {
-        console.log("Conectado ao WebSocket");
-      };
-  
-      socket.onmessage = (event) => {
-        const newMessage: Message = JSON.parse(event.data);
+      setTriggerUpdate(false); // Resetar o trigger
+    }
+  }, [triggerUpdate]);
 
-        if (newMessage.content) {
-            setMessages((prevMessages) => [...prevMessages, newMessage]);
-        }
-      };
-  
-      socket.onerror = (error) => {
-        console.error("Erro no WebSocket:", error);
-      };
-  
-      socket.onclose = () => {
-        console.log("WebSocket desconectado");
-      };
-  
-      //Cleanup ao desmontar o componente
-      return () => {
-        socket.close();
-      };
-    }, []);
-    
-
-    return (
-        <ol className={`flex ${!user ? "justify-start" : "justify-end"} w-full flex-col gap-2`}>
-            {messages.map((message) => (
-                <li key={message.id} className={`flex ${user == message.sender ? "justify-end bg-green-200" : "justify-start bg-gray-200" } w-[70%] border p-2 rounded`}>
-                    <div className="w-full">
-                        <strong>{message.sender}:</strong>
-                        <div className="flex justify-between">
-                            <p>{message.content}</p>
-                            <small>{new Date(message.timestamp).toLocaleString("pt-BR")}</small>
-                        </div>
-                    </div>
-                </li>
-            ))}
-        </ol>
-    )
-}
+  return (
+    <ol className={`flex w-full flex-col gap-2 overflow-auto h-[350px] overflow-y-auto`}>
+      {messages.map((message) => (
+        <li
+          key={message.id}
+          className={`flex ${
+            user === message.sender ? "justify-end" : "justify-start"
+          }`}
+        >
+          <div
+            className={`w-[80%] border p-2 rounded ${
+              user === message.sender
+                ? "bg-green-200"
+                : "bg-gray-200"
+            }`}
+          >
+            <strong>{message.sender}:</strong>
+            <div className="flex justify-between">
+              <p>{message.content}</p>
+              <small>
+                {new Date(message.timestamp).toLocaleString("pt-BR")}
+              </small>
+            </div>
+          </div>
+        </li>
+      ))}
+    </ol>
+  );
+};

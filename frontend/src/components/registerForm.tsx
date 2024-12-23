@@ -16,6 +16,7 @@ export const RegisterForm = () => {
         onSubmit={(e) => {
           e.preventDefault();
           setUser(inputValue);
+          localStorage.setItem("user", inputValue);
           router.push("/chat")
         }}
       >

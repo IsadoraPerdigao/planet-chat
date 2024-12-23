@@ -7,7 +7,7 @@ import location from "../assets/locationPin.svg"
 
 export const Footer = () => {
     return (
-        <div className="flex items-center justify-between w-[100%] p-4 bg-blue-950 absolute bottom-0">
+        <div className="flex items-center justify-between w-[100%] p-4 bg-blue-950">
             <div className="flex gap-2 text-gray-300 text-sm items-center">
                 <Image src={phone} alt="Phone icon"/>
                 <p>(31) 2125-2800</p>
