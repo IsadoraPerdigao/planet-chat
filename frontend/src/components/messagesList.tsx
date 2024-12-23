@@ -29,7 +29,10 @@ export const MessagesList = ({
       const response = await axios.get<Message[]>(
         "http://localhost:8080/messages"
       );
-      setMessages(response.data);
+
+      if(response.data.length > 0) {
+        setMessages(response.data);
+      }
     } catch (error) {
       console.error("Erro no GET das mensagens:", error);
     }
@@ -90,7 +93,7 @@ export const MessagesList = ({
     <ol
       className={`flex w-full flex-col gap-2 overflow-auto h-[350px] overflow-y-auto`}
     >
-      {messages.map((message) => (
+      {messages.length > 0 ? messages.map((message) => (
         <li
           key={message.id}
           className={`flex ${
@@ -111,7 +114,7 @@ export const MessagesList = ({
             </div>
           </div>
         </li>
-      ))}
+      )) : <h1 className="m-auto font-bold text-lg">Ainda não temos mensagens por aqui</h1> }
       <div ref={endOfMessagesRef} />
     </ol>
   );

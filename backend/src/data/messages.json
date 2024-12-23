@@ -1,104 +1,14 @@
 [
   {
-    "id": 123457,
-    "content": "Alguma coisa",
-    "sender": "João",
-    "timestamp": "2024-12-22T16:31:32.323Z"
-  },
-  {
-    "id": "eaf9672b-d432-4db0-9be1-aff09725016c",
-    "content": "Alguma coisa",
-    "sender": "João",
-    "timestamp": "2024-12-22T16:35:51.349Z"
-  },
-  {
-    "id": "26ce2606-a4a3-4c50-ab9d-3ac9f2817944",
-    "content": "Alguma coisa",
-    "sender": "João",
-    "timestamp": "2024-12-22T16:36:23.999Z"
-  },
-  {
-    "id": "6efa6ecd-df43-4cd4-b284-674f9057fcf5",
-    "content": "Alguma coisa",
-    "sender": "Joana",
-    "timestamp": "2024-12-22T18:12:18.603Z"
-  },
-  {
-    "id": "f8c4205f-370d-4a0f-a552-3c67dac63706",
-    "content": "Teste",
+    "id": "a386e3ec-34f9-4514-96d2-088daac4f384",
+    "content": "Olá, meu nome é Isadora.",
     "sender": "Isadora",
-    "timestamp": "2024-12-23T17:10:53.194Z"
+    "timestamp": "2024-12-23T20:24:58.966Z"
   },
   {
-    "id": "678962d2-9fda-4532-8fd6-6b1eb62f7fbe",
-    "content": "test 2",
+    "id": "dc91d816-8581-440e-b03f-375fd706b7b6",
+    "content": "Último teste",
     "sender": "Isadora",
-    "timestamp": "2024-12-23T17:14:55.181Z"
-  },
-  {
-    "id": "8d9b343c-ae40-4050-bfe2-1fefa0405b49",
-    "content": "Teste 3",
-    "sender": "Isadora",
-    "timestamp": "2024-12-23T17:20:48.236Z"
-  },
-  {
-    "id": "992438c2-fd53-4bc3-98b4-5cd9da07be08",
-    "content": "Teste 4\n",
-    "sender": "Isadora",
-    "timestamp": "2024-12-23T17:48:21.163Z"
-  },
-  {
-    "id": "a92af87c-920f-466d-b4db-7ef798facc4c",
-    "content": "Agora vai\n",
-    "sender": "Isadora",
-    "timestamp": "2024-12-23T17:52:22.265Z"
-  },
-  {
-    "id": "477b2221-8aeb-48c2-b0ac-72806494bf67",
-    "content": "Legal!\n",
-    "sender": "Isadora",
-    "timestamp": "2024-12-23T17:52:36.588Z"
-  },
-  {
-    "id": "11bb3641-8b0f-4ad0-b793-e14f1bd38559",
-    "content": "Inhai\n",
-    "sender": "Pedro",
-    "timestamp": "2024-12-23T18:47:11.171Z"
-  },
-  {
-    "id": "856b3607-e03c-4bd9-b55b-c9d1c644f5af",
-    "content": "Funfou demais! =]",
-    "sender": "Pedro",
-    "timestamp": "2024-12-23T18:49:30.707Z"
-  },
-  {
-    "id": "8edcb15f-171e-48bb-926f-7ccd494e4471",
-    "content": "Rolou?\n",
-    "sender": "Pedro",
-    "timestamp": "2024-12-23T18:53:10.033Z"
-  },
-  {
-    "id": "b3e6b873-e3b3-49b1-be44-d14e2dc7b8c5",
-    "content": "E agora?\n",
-    "sender": "Pedro",
-    "timestamp": "2024-12-23T18:53:56.084Z"
-  },
-  {
-    "id": "f9169d31-fce2-431e-826e-e092eea2317a",
-    "content": "Deu?\n",
-    "sender": "Pedro",
-    "timestamp": "2024-12-23T18:59:23.808Z"
-  },
-  {
-    "id": "ac9d1e8c-6cfc-4007-ae9a-ee0209ade2cc",
-    "content": "De novo",
-    "sender": "Pedro",
-    "timestamp": "2024-12-23T18:59:47.840Z"
-  },
-  {
-    "id": "d9355c62-e64f-45c1-abe6-acd426a0cdfe",
-    "content": "Agoooora sim",
-    "sender": "Pedro",
-    "timestamp": "2024-12-23T19:00:43.661Z"
+    "timestamp": "2024-12-23T20:34:09.083Z"
   }
 ]
