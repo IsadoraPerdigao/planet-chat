@@ -2,10 +2,11 @@
 
 import Image from "next/image";
 import logo from "../assets/planetTechLogo.jpeg";
-import { useUserContext } from "@/context/userContext";
+import { useRouter } from "next/navigation";
 
 export const Header = () => {
-  const { user, setUser } = useUserContext();
+  const user = localStorage.getItem("user");
+  const router = useRouter();
 
   return (
     <header className="flex items-center justify-between w-[100%] bg-orange-400 shadow-lg">
@@ -17,8 +18,8 @@ export const Header = () => {
         className="mr-4"
         disabled={user ? false : true}
         onClick={() => {
-          setUser("");
           localStorage.clear();
+          router.push("/");
         }}
       >
         Sair

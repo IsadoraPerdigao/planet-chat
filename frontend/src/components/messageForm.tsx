@@ -16,7 +16,7 @@ export const MessageForm = ({
         sender: loggedUser,
       });
 
-      setInputValue("");
+      setInputValue(""); // Limpa o campo de texto
       onMessageSent(); // Notifica que uma nova mensagem foi enviada
     } catch (error) {
       console.log(`Erro ${error} ao tentar enviar a mensagem`);
