@@ -18,7 +18,6 @@ export function getMessagesService() {
             const dateA = new Date(a.timestamp);
             const dateB = new Date(b.timestamp);
             
-            // Ordena de forma decrescente (data mais recente primeiro)
             return dateA.getTime() - dateB.getTime();
           });
 
