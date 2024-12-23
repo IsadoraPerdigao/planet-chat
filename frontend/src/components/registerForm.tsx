@@ -1,11 +1,9 @@
 "use client";
 
-import { useUserContext } from "@/context/userContext";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 export const RegisterForm = () => {
-  const { setUser } = useUserContext();
   const [inputValue, setInputValue] = useState("");
   const router = useRouter();
 
@@ -15,7 +13,7 @@ export const RegisterForm = () => {
         className="rounded flex gap-6 p-2"
         onSubmit={(e) => {
           e.preventDefault();
-          setUser(inputValue);
+          localStorage.setItem("user", inputValue);
           router.push("/chat")
         }}
       >
